@@ -20,6 +20,11 @@ public class RedisController {
         return "set key 'testkey'";
     }
 
+    @RequestMapping(value = "/gettestkey")
+    public String testRedisGetKey() {
+        ValueOperations<String, String> valops = redisTemplate.opsForValue();
+        return valops.get("testkey");
+    }
 
 }
 
